@@ -224,13 +224,25 @@ mv api_copy.md ../../../src/main/
 - 현재 위치가 ~/practice/project/일 때, 다음 작업을 수행하시오:
 ```
 src/main/ 디렉토리에 models/ 하위 디렉토리를 생성하시오.
+mkdir ./src/main/models/
 docs/ 디렉토리에 README.md 파일을 생성하고 "# Project Documentation"이라는 내용을 작성하시오.
+echo "# Project Documentation" > docs/README.md
 tests/unit/ 디렉토리의 모든 파일을 tests/ 디렉토리로 이동하시오.
+mv ./tests/unit/* ./tests/
 config/ 디렉토리의 모든 파일을 src/ 디렉토리에 복사하시오.
+cp ./config/* ./src/
+
 ```
 
-7-2. 백업 및 정리
-현재 위치가 ~/practice/project/src/main/일 때:
+## 7-2. 백업 및 정리
+
+- 현재 위치가 ~/practice/project/src/main/일 때:
+```
+
 전체 프로젝트를 ../../project_backup/으로 복사하시오.
+cp -r . ./../../project_backup/
 utils/ 디렉토리의 모든 .py 파일을 현재 디렉토리의 models/ 디렉토리로 복사하시오.
+cp ../utils/*.py ./models/
 프로젝트 루트의 README.md 파일을 현재 디렉토리에 PROJECT_INFO.md로 복사하시오.
+cp ./../../README.md PROJECT_INFO.md
+```
