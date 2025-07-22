@@ -102,6 +102,21 @@ log_chohyunjun.
 * `/etc/login_notice.txt`는 임의의 내용을 사전에 작성해 둘 것
 
 * `sudo` 권한 필요
+```
+[chohyunjun@localhost ~]$ nano /etc/login_notice.txt 
+chohyunjun zzang
+
+[chohyunjun@localhost ~]$ sudo nano /etc/login_notice.txt
+[sudo] password for chohyunjun: 
+[chohyunjun@localhost ~]$ sudo nano /etc/profile
+[chohyunjun@localhost ~]$ su - chohyunjun 
+Password: 
+chohyunjun zzang
+Welcome, chohyunjun
+rm: cannot remove '/home/chohyunjun/Downloads/auto_created': Is a directory
+rm: cannot remove '/home/chohyunjun/Downloads/practice': Is a directory
+[chohyunjun@localhost ~]$ 
+```
 
   ---
 
