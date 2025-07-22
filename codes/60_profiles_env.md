@@ -103,8 +103,6 @@ log_chohyunjun.
 
 * `sudo` 권한 필요
 ```
-[chohyunjun@localhost ~]$ nano /etc/login_notice.txt 
-chohyunjun zzang
 
 [chohyunjun@localhost ~]$ sudo nano /etc/login_notice.txt
 [sudo] password for chohyunjun: 
