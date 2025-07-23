@@ -283,45 +283,56 @@ diff -u fruits_v1.txt fruits_v2.txt
   ## **문제 9: 파이프라인 활용 (고급)**
 
 **9-1.** `employees.txt` 파일에서 Seoul에 거주하는 직원의 이름만 추출하세요.
-
-* \# 명령어를 작성하세요
+```
+grep "Seoul" employees.txt | cut -d ":" -f1
+John
+Sara
+Lisa
+```
 
 
 **9-2.** `system.log` 파일에서 에러와 경고 메시지의 총 개수를 확인하세요.
-
-* \# 명령어를 작성하세요
-
+```
+grep -E "ERROR|WARNING" system.log | wc -l
+4
+```
 
 
 **9-4.** `employees.txt` 파일에서 나이를 기준으로 정렬한 후 가장 나이가 많은 직원의 이름을 출력하세요.
-
-* \# 명령어를 작성하세요  
+```
+sort -t ":" -k2 -n employees.txt | tail -n 1 | cut -d ":" -f1
+Tom
+```
     
   ---
 
   ## **문제 10: 리다이렉션 활용 (중급)**
 
 **10-1.** `fruits.txt` 파일을 알파벳 역순으로 정렬하여 `fruits_reverse.txt` 파일에 저장하세요.
-
-* \# 명령어를 작성하세요
-
+```
+sort -r fruits.txt > fruits_reverse.txt
+```
 
 **10-2.** `employees.txt` 파일에서 Seoul 거주자 정보를 `seoul_employees.txt` 파일에 저장하세요.
-
-* \# 명령어를 작성하세요
-
+```
+grep "Seoul" employees.txt > seoul_employees.txt
+```
 
 **10-3.** `system.log` 파일의 에러 메시지만 추출하여 `errors.txt` 파일에 저장하세요.
-
-* \# 명령어를 작성하세요  
-    
+```
+grep "ERROR" system.log > errors.txt
+```
   ---
 
   ## **문제 11: 종합 문제 (고급)**
 
 **11-1.** `employees.txt` 파일에서 각 도시별 직원 수를 계산하여 많은 순서대로 출력하세요.
-
-* \# 명령어를 작성하세요
+```
+cut -d ":" -f3 employees.txt | sort | uniq -c | sort -nr
+      3 Seoul
+      1 Daegu
+      1 Busan
+```
 
 
 **11-2.** `system.log` 파일에서 시간대별(시간 단위) 로그 개수를 계산하세요.
