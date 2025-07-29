@@ -144,6 +144,42 @@ EOF
 
 1. 사용자가 입력한 과목이 유효한지 검사 (수학, 영어, 과학)  
 ```
+Last login: Fri Jul 25 09:41:51 2025 from 192.168.0.40
+범준바보
+[shinbeomjun@192.168.0.34 ~]$ cd ~/HYUNJUN/
+[shinbeomjun@192.168.0.34 ~/HYUNJUN]$ vi shell_practice/grade_analyzer.sh
+[shinbeomjun@192.168.0.34 ~/HYUNJUN]$ cat shell_practice/grade_analyzer.sh
+#!/bin/bash
+
+TXT="students.txt"
+
+read -p "과목명을 입력하세요 (수학/영어/과학): " SUBJECT
+
+# 유효성 검사
+if [[ "$SUBJECT" != "수학" && "$SUBJECT" != "영어" && "$SUBJECT" != "과학" ]]; then
+  echo " '$SUBJECT'는 유효한 과목명이 아닙니다."
+fi
+
+# 과목별 필드 번호 설정
+if [ "$SUBJECT" = "수학" ]; then
+    FIELD=3
+elif [ "$SUBJECT" = "영어" ]; then
+    FIELD=5
+else
+    FIELD=7
+fi
+
+# 점수 추출 후 정렬 출력
+echo "'$SUBJECT' 점수 정렬 결과:"
+cut -d ":" -f "$FIELD" "$TXT" | sort -n
+
+[shinbeomjun@192.168.0.34 ~/HYUNJUN]$ chmod +x shell_practice/grade_analyzer.sh
+[shinbeomjun@192.168.0.34 ~/HYUNJUN]$ ./shell_practice/grade_analyzer.sh
+과목명을 입력하세요 (수학/영어/과학): history
+ 'history'는 유효한 과목명이 아닙니다.
+'history' 점수 정렬 결과:
+cut: students.txt: No such file or directory
+```
 
 ```
 
